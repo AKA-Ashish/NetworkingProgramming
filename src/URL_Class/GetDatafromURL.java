@@ -16,8 +16,8 @@ public class GetDatafromURL {
             //url ko content lai read garxa ani getInputStream ko through br mha store hunxa
 
             String a;
-            while((a = br.readLine()) != null);
-            System.out.println(a);
+            while((a = br.readLine()) != null)
+            System.out.println(a + "\n");
 
 
         }
