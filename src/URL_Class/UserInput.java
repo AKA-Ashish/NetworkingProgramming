@@ -26,12 +26,18 @@ public class UserInput {
             System.out.println("  - you are "+age+ " Years old");
             System.out.println("  - You like "+ food);
 
+            scanner.close();
+
         }
     
         catch(Exception e)
         {
             System.out.println("Error "+ e);
         }
+
+        /////Modified ALLLLLL
+
+        
         
   
 
