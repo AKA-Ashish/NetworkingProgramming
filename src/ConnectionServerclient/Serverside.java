@@ -1,6 +1,7 @@
 package ConnectionServerclient;
 
 import java.net.*;
+import java.util.Scanner;
 import java.io.*;
 
 public class Serverside {
@@ -8,22 +9,23 @@ public class Serverside {
     public static void main(String[] args) {
         
         try {
-            ServerSocket server = new ServerSocket(1234);
+            Scanner scanner = new Scanner(System.in);
+
+            ServerSocket server_socket = new ServerSocket(1234);
+            
             Socket client;
             System.out.println("Waiting for client to connect");
-            client = server.accept();
-            System.out.println("Connect success");
+            client = server_socket.accept();
+            DataInputStream data_input_stream = new DataInputStream(client.getInputStream());
 
-            while(true){
-                DataInputStream dis = new DataInputStream(client.getInputStream());
-                String input = dis.readUTF();
-                String output = "hello ";
-                DataOutputStream dos = new DataOutputStream(client.getOutputStream());
-                dos.writeUTF(output);
+            String input = data_input_stream.readUTF();
 
+            System.out.println("Message form client "+ input);
 
-            }
-            
+            String output = scanner.nextLine();
+
+            DataOutputStream dos = new DataOutputStream(client.getOutputStream());
+            dos.writeUTF(output);
 
 
 
